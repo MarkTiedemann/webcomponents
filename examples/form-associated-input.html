@@ -16,7 +16,7 @@ customElements.define("x-input", class extends HTMLElement {
 	}
 	#onKeyUp(event) {
 		if (event.key === "Enter") {
-			this.#internals.form.submit();
+			this.#internals.form?.submit();
 		}
 	}
 	connectedCallback() {
@@ -30,6 +30,7 @@ customElements.define("x-input", class extends HTMLElement {
 });
 
 </script>
+
 <form>
 	<x-input name="test"></x-input>
 </form>

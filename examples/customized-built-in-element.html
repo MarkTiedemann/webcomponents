@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<script>
+
+customElements.define("confirm-a", class extends HTMLAnchorElement {
+	constructor() {
+		super();
+		this.addEventListener("click", (event) => {
+			if (!confirm(`Möchten Sie wirklich ${this.href} besuchen?`)) {
+				event.preventDefault();
+			}
+		});
+	}
+}, { extends: "a" });
+
+</script>
+
+<a is="confirm-a" href="https://eon-gridsolutions.com/">E.ON Grid Solutions GmbH</a>
