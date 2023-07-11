@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<script>
+
+customElements.define("x-input", class extends HTMLElement {
+	static formAssociated = true;
+	#input;
+	#internals;
+	constructor() {
+		super();
+		this.#input = document.createElement("input");
+		this.attachShadow({ mode: "open" }).appendChild(this.#input);
+		this.#internals = this.attachInternals();
+	}
+	#onChange() {
+		this.#internals.setFormValue(this.#input.value);
+	}
+	#onKeyUp(event) {
+		if (event.key === "Enter") {
+			this.#internals.form.submit();
+		}
+	}
+	connectedCallback() {
+		this.#input.addEventListener("change", this.#onChange.bind(this));
+		this.#input.addEventListener("keyup", this.#onKeyUp.bind(this));
+	}
+	disconnectedCallback() {
+		this.#input.removeEventListener("change", this.#onChange.bind(this));
+		this.#input.removeEventListener("keyup", this.#onKeyUp.bind(this));
+	}
+});
+
+</script>
+<form>
+	<x-input name="test"></x-input>
+</form>

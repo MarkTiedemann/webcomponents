@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<meta charset="utf-8"/>
+<title>WebComponents</title>
+<style>
+
+body { color: white; background: black; font-family: monospace; font-size: 3.5vh; height: 60vh; width: calc(100% - 40vh); margin: 20vh; overflow: hidden; }
+pre { margin: 0; white-space: pre-wrap; }
+pre:not([data-visible]) { display: none; }
+a {	color: dodgerblue; }
+.large { margin-top: -12.5vh; }
+
+.color-palette { color: orchid deeppink crimson coral gold khaki grey lightgreen lightskyblue dodgerblue darkslateblue; }
+
+</style>
+
+<pre>
+Benutzerhinweise:
+
+- Nächste Folie: <span style="color: deeppink">▶</span>
+- Vorherige Folie: <span style="color: deeppink">◀</span>
+
+
+
+
+
+
+
+
+
+
+<span style="color: grey"><i>// Diese Präsentation ist auf 1080p ausgelegt</i></span>
+</pre>
+
+<pre>
+<span style="color: dodgerblue"># WebComponents</span>
+
+<span style="color: lightgreen">> Agenda</span>
+
+  <span style="color: khaki;"><i>1.</i></span> Einleitung
+  <span style="color: khaki;"><i>n.</i></span> Diskussion
+
+
+<i>* Slides: <a href="https://marksweb.site/webcomponents">marksweb.site/webcomponents</a></i>
+</pre>
+
+<pre>
+<span style="color: dodgerblue"># Diskussion</span>
+
+
+<span style="color: khaki">Noch Fragen? Feedback? Hinweise?</i>
+</pre>
+
+<pre>
+<span style="color: deeppink">exit;</span>
+</pre>
+
+<script>
+
+let slides = document.querySelectorAll("pre");
+let l = slides.length - 1;
+let s = location.hash === "" ? 0 : parseInt(location.hash.slice(1));
+slides[s].dataset.visible = "";
+
+function slide(n) {
+	delete slides[s].dataset.visible;
+	s = n;
+	if (n === 0) history.replaceState(null, "", location.href.replace(/#\d+/, ""));
+	else location.hash = `#${n}`;
+	slides[n].dataset.visible = "";
+}
+
+addEventListener("hashchange", () =>
+	slide(parseInt(location.hash.slice(1))));
+
+addEventListener("keyup", ({ key }) => { switch (key) {
+	case "ArrowLeft": slide(s === 0 ? l : s - 1); break;
+	case "ArrowRight": slide(s === l ? 0 : s + 1); break;
+}});
+
+</script>
