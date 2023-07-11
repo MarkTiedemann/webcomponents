@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<link href="https://web-ui.eon.com/cdn/fonts/3.0.0/index.css" rel="stylesheet"/>
+<script>
+
+const headingSize = new CSSStyleSheet();
+headingSize.replaceSync(/*css*/`
+	h1 {
+		font-size: 5rem;
+	}
+`);
+
+const headingColor = new CSSStyleSheet();
+headingColor.replaceSync(/*css*/`
+	h1 {
+		color: #ea1b0a;
+	}
+`);
+
+const headingFont = new CSSStyleSheet();
+headingFont.replaceSync(/*css*/`
+	h1 {
+		font-family: EONBrixSans;
+	}
+`);
+
+document.adoptedStyleSheets = [headingSize];
+
+customElements.define("eon-h1", class extends HTMLElement {
+	constructor() {
+		super();
+		const shadowRoot = this.attachShadow({ mode: "open" });
+		shadowRoot.adoptedStyleSheets = [
+			...document.adoptedStyleSheets,
+			headingColor,
+			headingFont,
+		];
+		shadowRoot.innerHTML = /*html*/ `
+			<h1>
+				<slot></slot>
+			</h1>
+		`;
+	}
+});
+
+</script>
+
+<h1>Default Heading</h1>
+<eon-h1>E.ON Heading</eon-h1>
