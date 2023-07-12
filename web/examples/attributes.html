@@ -1,2 +1,75 @@
 <!DOCTYPE html>
-<!-- TODO -->
+<script>
+
+class DateTime extends HTMLElement {
+
+	#isoString;
+	#locale;
+	#time;
+
+	static get observedAttributes() {
+		return ["iso-string", "locale"];
+	}
+
+	constructor() {
+		super();
+
+		this.#isoString = this.getAttribute("iso-string");
+		this.#locale = this.getAttribute("locale");
+		this.#time = document.createElement("time");
+		this.setTime();
+
+		this.attachShadow({ mode: "open" }).appendChild(this.#time);
+	}
+
+	setTime() {
+		if (this.#isoString !== null && this.#locale !== null) {
+			this.#time.dateTime = this.#isoString;
+			this.#time.textContent = new Intl.DateTimeFormat(this.#locale).format(new Date(this.#isoString));
+		}
+	}
+
+	get isoString() {
+		return this.#isoString;
+	}
+
+	set isoString(value) {
+		this.setAttribute("iso-string", value);
+	}
+
+	get locale() {
+		return this.#locale;
+	}
+
+	set locale(value) {
+		this.setAttribute("locale", value);
+	}
+
+	attributeChangedCallback(name, oldValue, newValue) {
+		switch (name) {
+			case "iso-string":
+				this.#isoString = newValue;
+				break;
+			case "locale":
+				this.#locale = newValue;
+				break;
+		}
+		this.setTime();
+	}
+}
+
+customElements.define("date-time", DateTime);
+
+</script>
+
+<date-time iso-string="2023-07-12T15:32:21.546Z" locale="de-DE"></date-time>
+<br/>
+
+<script>
+
+const dateTime = new DateTime();
+dateTime.isoString = "2023-07-12T15:32:21.546Z";
+dateTime.locale = "en-US";
+document.body.appendChild(dateTime);
+
+</script>
