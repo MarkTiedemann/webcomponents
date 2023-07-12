@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <script>
 
-customElements.define("confirm-a", class extends HTMLAnchorElement {
+customElements.define("link-with-confirmation", class extends HTMLAnchorElement {
 	constructor() {
 		super();
 		this.addEventListener("click", (event) => {
@@ -14,4 +14,4 @@ customElements.define("confirm-a", class extends HTMLAnchorElement {
 
 </script>
 
-<a is="confirm-a" href="https://eon-gridsolutions.com/">E.ON Grid Solutions GmbH</a>
+<a is="link-with-confirmation" href="https://eon-gridsolutions.com/">E.ON Grid Solutions GmbH</a>

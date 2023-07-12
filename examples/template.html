@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<template>
+	<tr>
+		<td></td>
+		<td>
+			<a></a>
+		</td>
+		<td>
+			<img/>
+		</td>
+	</tr>
+</template>
+
+<h1>Verteilnetzbetreiber</h1>
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Link</th>
+			<th>Logo</th>
+		</tr>
+	</thead>
+	<tbody></tbody>
+</table>
+
+<script>
+
+const VNBs = [
+	["Avacon Netz GmbH","https://www.avacon-netz.de/","https://marktpartner.eon.de/images/operators/Avacon-Netz.svg"],
+	["Bayernwerk Netz GmbH","https://www.bayernwerk-netz.de/","https://marktpartner.eon.de/images/operators/Bayernwerk-Netz.svg"],
+	["E.DIS Netz GmbH","https://www.e-dis-netz.de/","https://marktpartner.eon.de/images/operators/EDIS-Netz.svg"],
+	["ElbEnergie GmbH","https://www.elbenergie.com/","https://marktpartner.eon.de/images/operators/ElbEnergie.svg"],
+	["EnergieNetze Bayern GmbH","https://www.energienetze-bayern.com/","https://marktpartner.eon.de/images/operators/EnergieNetze-Bayern.svg"],
+	["EnergieNetze Schaafheim GmbH","https://www.energienetze-schaafheim.com/","https://marktpartner.eon.de/images/operators/EnergieNetze-Schaafheim.svg"],
+	["Energieversorgung Putzbrunn GmbH & Co. KG","https://www.energieversorgung-putzbrunn.de/","https://marktpartner.eon.de/images/operators/Energieversorgung-Putzbrunn.svg"],
+	["HanseGas GmbH","https://www.hansegas.com/","https://marktpartner.eon.de/images/operators/HanseGas.svg"],
+	["Netzgesellschaft Panketal GmbH","https://www.panketal-netz.de/","https://marktpartner.eon.de/images/operators/Netzgesellschaft-Panketal.svg"],
+	["NordNetz GmbH","https://www.nordnetz.com/","https://marktpartner.eon.de/images/operators/NordNetz.svg"],
+	["Schleswig-Holstein Netz AG","https://www.sh-netz.com/","https://marktpartner.eon.de/images/operators/Schleswig-Holstein-Netz.svg"],
+];
+
+const template = document.querySelector("template");
+const tbody = document.querySelector("tbody");
+const rowFragments = document.createDocumentFragment();
+
+for (const [name, url, logo] of VNBs) {
+	const rowFragment = template.content.cloneNode(true);
+	const tr = rowFragment.firstElementChild;
+	
+	const td = tr.firstElementChild;
+	td.textContent = name;
+
+	const a = tr.children[1].firstElementChild;
+	a.href = url;
+	a.textContent = url;
+
+	const img = tr.children[2].firstElementChild;
+	img.src = logo;
+
+	rowFragments.appendChild(rowFragment);
+}
+
+tbody.appendChild(rowFragments);
+
+</script>

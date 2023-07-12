@@ -19,6 +19,7 @@ Eine Präsentation über **WebComponents**: [marksweb.site/webcomponents](https:
         - Explizite Styles
     - Contra
         - Teilweise komplexe APIs
+            - attributes: viel Boilerplate
         - Komplexeres Debugging (im Vergleich zu plain old HTML and JavaScript)
     - Veraltete Contra
         - Funktioniert nicht mit Forms -> Nicht mehr, gelöst durch HTMLElement#formAssociated und ShadowRoot#attachInternals / ElementInternals
