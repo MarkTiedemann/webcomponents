@@ -26,6 +26,9 @@ class DateTime extends HTMLElement {
 		if (this.#isoString !== null && this.#locale !== null) {
 			this.#time.dateTime = this.#isoString;
 			this.#time.textContent = new Intl.DateTimeFormat(this.#locale).format(new Date(this.#isoString));
+		} else {
+			this.#time.dateTime = "";
+			this.#time.textContent = "";
 		}
 	}
 
