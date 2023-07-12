@@ -28,3 +28,14 @@ Eine Präsentation über **WebComponents**: [marksweb.site/webcomponents](https:
         - FOUC ("Flash of unstyled content") -> Nicht mehr, gelöst durch :defined Selektor und Declarative Shadow DOM
         - Accessibility -> Nicht mehr, gelöst durch ElementInternals
 - intellisense in vscode
+
+-> Reihenfolge
+    - HTML / CSS
+        - template
+        - declarative shadow dom
+        - slots
+    - JS
+        - adopted stylesheets
+        - customized built-in element
+        - attributes
+        - form-associated input
