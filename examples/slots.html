@@ -1,2 +1,69 @@
 <!DOCTYPE html>
-<!-- TODO -->
+<link href="./font-faces.css" rel="stylesheet"/>
+<body style="margin: 0;">
+
+<e-header>
+	<template shadowrootmode="open">
+		<style>
+			:host {
+				display: block;
+				font-family: "E.ON Brix Sans";
+				height: 64px;
+				border-bottom: 4px solid #e8e8e8;
+			}
+
+			header {
+				margin: 0 auto;
+				height: calc(100% + 4px);
+				max-width: 1200px;
+				display: flex;
+				justify-content: space-between;
+			}
+
+			nav {
+				display: flex;
+			}
+
+			::slotted(a) {
+				display: flex;
+				align-items: center;
+				color: #39393A;
+				font-size: 18px;
+				text-decoration: none;
+				padding: 0 16px;
+				border-bottom: 4px solid transparent;
+			}
+
+			::slotted(a:hover) {
+				background: #f6f6f7;
+				border-color: #d1d1d1;
+			}
+
+			::slotted(a:first-of-type) {
+				border-color: #ea1b0a;
+			}
+		</style>
+
+		<header>
+			<nav>
+				<slot name="left"></slot>
+			</nav>
+			<nav>
+				<slot name="right"></slot>
+			</nav>
+		</header>
+	</template>
+
+	<a href="#" slot="left">Strom</a>
+	<a href="#" slot="left">Erdgas</a>
+	<a href="#" slot="left">Solar</a>
+
+	<a href="#" slot="right">
+		<svg title="Profil" width="18" height="26" viewBox="0 0 18 26">
+			<path d="M9 9c2.5 0 4.5-2 4.5-4.5S11.5 0 9 0 4.5 2 4.5 4.5 6.5 9 9 9zm9 6c0-2.2-1.8-4-4-4H4c-2.2 0-4 1.8-4 4v10c0 .6.4 1 1 1s1-.4 1-1V15c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v10c0 .6.4 1 1 1s1-.4 1-1V15z"/>
+		</svg>
+	</a>
+	<a href="#" slot="right">
+		<img alt="E.ON" src="https://www.eon.com/content/dam/eon/eon-com/eon-com-assets/content/general/logo/logo-eon-red.svg"/>
+	</a>
+</e-header>
