@@ -1,5 +1,5 @@
 {
 	"html.autoClosingTags": false,
-	"editor.autoIndent": "none",
+	// "editor.autoIndent": "none",
 	"editor.wordWrapColumn": 9999
 }
