@@ -8,9 +8,10 @@ body { color: white; background: black; font-family: monospace; font-size: 3.5vh
 pre { margin: 0; white-space: pre-wrap; }
 pre:not([data-visible]) { display: none; }
 a {	color: dodgerblue; }
-.large { margin-top: -12.5vh; }
+.list a { color: lightskyblue; }
+.large { margin: -10vh -5vh; }
 
-.color-palette { color: orchid deeppink crimson coral gold khaki grey lightgreen lightskyblue dodgerblue darkslateblue; }
+.color-palette { color:  deeppink lightcoral khaki grey lightgreen lightskyblue dodgerblue; }
 
 </style>
 
@@ -38,10 +39,62 @@ Benutzerhinweise:
 <span style="color: lightgreen">> Agenda</span>
 
   <span style="color: khaki;"><i>1.</i></span> Einleitung
-  <span style="color: khaki;"><i>n.</i></span> Diskussion
+  <span style="color: khaki;"><i>2.</i></span> Beispiele
+  <span style="color: khaki;"><i>3.</i></span> Diskussion
 
 
 <i>* Slides: <a href="https://marksweb.site/webcomponents">marksweb.site/webcomponents</a></i>
+</pre>
+
+<pre>
+<span style="color: dodgerblue"># Einleitung</span>
+
+<q><span style="color: lightskyblue">WebComponents</span></q> ist der Überbegriff für eine Menge von standardisierten Web-Plattform-Features mit denen eigene HTML-Elemente gebaut werden können.
+
+Die Elemente sind:<span style="color: lightskyblue">
+ - wiederverwendbar
+ - gekapselt
+ - erweiterbar</span>
+
+Zu den Features gehören u. a.:<span style="color: lightskyblue">
+ - Template Elements
+ - Shadow DOM
+ - Custom Elements</span>
+</pre>
+
+<pre class="list">
+<span style="color: dodgerblue"># Beispiele</span>
+
+<span style="color: khaki;">1.</span> <a href="./examples/1-template.html">&lt;template>'s</a>
+<span style="color: khaki;">2.</span> <a href="./examples/2-declarative-shadow-dom.html">Declarative Shadow DOM</a>
+<span style="color: khaki;">3.</span> <a href="./examples/3-slots.html">&lt;slot>'s</a>
+<span style="color: khaki;">4.</span> <a href="./examples/4-adopted-stylesheets.html">Adopted Stylesheets</a>
+<span style="color: khaki;">5.</span> <a href="./examples/5-customized-built-in-element.html">Customized built-in Elements</a>
+<span style="color: khaki;">6.</span> <a href="./examples/6-attributes.html">Attributes</a>
+<span style="color: khaki;">7.</span> <a href="./examples/7-form-associated-input.html">Form-associated Inputs</a>
+</pre>
+
+<pre class="large">
+<span style="color: dodgerblue"># Diskussion</span>
+
+<span style="color: lightgreen">Pro:</span>
+ - Unabhängig von Frameworks durch Nutzung von Web-Standards
+ - Wiederverwendbar, gekapselt, erweiterbar
+
+<span style="color: lightcoral">Contra:</span>
+ - Teilweise komplexe APIs
+ - Teilweise viel Boilerplate (z. B. Attribute)
+ - Komplexeres Debugging
+
+<span style="color: lightgreen">Pro &</span> <span style="color: lightcoral">Contra:</span>
+ - Bruch der Style-Kaskade / Kontrolle über Kaskade
+ - IntelliSense muss konfiguriert werden
+
+<span style="color: lightcoral"><i>Veraltete Contra:</i></span>
+ - <i>Schlecht für SEO</i>
+ - <i>FOUC (<q>Flash of unstyled content</q>)</i> <span style="color: grey">-> gelöst durch Declarative Shadow DOM</span>
+ - <i>Funktioniert nicht mit Forms</i>
+ - <i>Keine Accessibility</i> <span style="color: grey">-> gelöst durch ElementInternals</span>
 </pre>
 
 <pre>
