@@ -70,9 +70,10 @@ Zu den Features gehören u. a.:<span style="color: lightskyblue">
 <span style="color: khaki;">2.</span> <a href="./examples/2-declarative-shadow-dom.html">Declarative Shadow DOM</a>
 <span style="color: khaki;">3.</span> <a href="./examples/3-slots.html">&lt;slot>'s</a>
 <span style="color: khaki;">4.</span> <a href="./examples/4-adopted-stylesheets.html">Adopted Stylesheets</a>
-<span style="color: khaki;">5.</span> <a href="./examples/5-customized-built-in-element.html">Customized built-in Elements</a>
-<span style="color: khaki;">6.</span> <a href="./examples/6-attributes.html">Attributes</a>
-<span style="color: khaki;">7.</span> <a href="./examples/7-form-associated-input.html">Form-associated Inputs</a>
+<span style="color: khaki;">5.</span> <a href="./examples/5-parts.html">::part()'s</a>
+<span style="color: khaki;">6.</span> <a href="./examples/6-customized-built-in-element.html">Customized built-in Elements</a>
+<span style="color: khaki;">7.</span> <a href="./examples/7-attributes.html">Attributes</a>
+<span style="color: khaki;">8.</span> <a href="./examples/8-form-associated-input.html">Form-associated Inputs</a>
 </pre>
 
 <pre class="large">
@@ -87,15 +88,15 @@ Zu den Features gehören u. a.:<span style="color: lightskyblue">
  - IntelliSense muss konfiguriert werden
 
 <span style="color: lightcoral">Contra:</span>
- - Teilweise komplexe APIs
- - Teilweise viel Boilerplate (z. B. Attribute)
+ - Teilweise komplexe APIs          <span style="color: grey">-> Abhilfe durch WebComponent-Frameworks</span>
+ - Teilweise viel Boilerplate (z. B. Attribute)         <span style="color: grey">wie stencil oder lit</span>
  - Komplexeres Debugging
 
 <span style="color: lightcoral"><i>Veraltete Contra:</i></span>
  - <i>Schlecht für SEO</i>
  - <i>FOUC (<q>Flash of unstyled content</q>)</i> <span style="color: grey">-> gelöst durch Declarative Shadow DOM</span>
  - <i>Funktioniert nicht mit Forms</i>
- - <i>Keine Accessibility</i> <span style="color: grey">-> gelöst durch ElementInternals</span>
+ - <i>Keine Accessibility</i>                <span style="color: grey">-> gelöst durch ElementInternals</span>
 </pre>
 
 <pre>

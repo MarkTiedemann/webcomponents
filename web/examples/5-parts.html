@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<link href="./font-faces.css" rel="stylesheet"/>
+<style>
+	eon-h1::part(heading) {
+		font-size: 10vh;
+		color: #262626;
+	}
+</style>
+
+<eon-h1>
+	<template shadowrootmode="open">
+		<style>
+			h1 {
+				font-family: "E.ON Brix Sans";
+				color: #ea1b0a;
+			}
+		</style>
+		<h1 part="heading">
+			<slot></slot>
+		</h1>
+	</template>
+
+	Extra-large & Dark Heading
+</eon-h1>
