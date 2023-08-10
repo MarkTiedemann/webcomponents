@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<script>
+
+class MyComponent extends HTMLElement {
+	constructor() {
+		super();
+		console.log("constructed");
+	}
+	connectedCallback() {
+		console.log("connected");
+	}
+	disconnectedCallback() {
+		console.log("disconnected");
+	}
+}
+
+customElements.define("my-component", MyComponent);
+
+document.addEventListener("DOMContentLoaded", () => {
+	const myComponent = new MyComponent();  // -> constructed
+	document.body.appendChild(myComponent); // -> connected
+	myComponent.remove();                   // -> disconnected
+});
+
+</script>
